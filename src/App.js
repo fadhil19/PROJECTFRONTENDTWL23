@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
 import './App.css';
+import configs from './configs';
 
 const App = () => {
   const [data, setData] = useState([]);
@@ -17,7 +18,7 @@ const App = () => {
 
   const fetchData = async () => {
     try {
-      const response = await axios.put('http://localhost:3000/mahasiswa');
+      const response = await axios.put(`${configs.HOST}/mahasiswa`);
       setData(response.data);
     } catch (error) {
       console.error(error);
@@ -40,7 +41,7 @@ const App = () => {
         address: address,
       };
 
-      const response = await axios.post('https://fair-jade-cormorant-cape.cyclic.app/mahasiswa', newData, config);
+      const response = await axios.post(`${configs.HOST}/mahasiswa`, newData, config);
       setData([...data, response.data]);
       setName('');
       setNim('');
@@ -55,7 +56,7 @@ const App = () => {
 
   const handleDeleteData = async (id) => {
     try {
-      await axios.delete(`http://localhost:3000/mahasiswa/${id}`);
+      await axios.delete(`${configs.HOST}/mahasiswa/${id}`);
       const updatedData = data.filter((item) => item._id !== id);
       setData(updatedData);
     } catch (error) {
@@ -71,7 +72,7 @@ const App = () => {
         birthdate: birthdate,
         address: address,
       };
-      const response = await axios.put(`http://localhost:3000/mahasiswa/${id}`, updatedData);
+      const response = await axios.put(`${configs.HOST}/mahasiswa/${id}`, updatedData);
       const updatedList = data.map((item) =>
         item._id === id ? response.data : item
       );

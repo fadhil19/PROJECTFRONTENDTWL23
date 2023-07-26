@@ -129,7 +129,7 @@ const Tambahdata = () => {
       <h3>Sistem Informasi Mahasiswa Sistem Informasi</h3> */}
 
 
-      <button onClick={() => { navigate('/') }} id='btn-tambah' style={{marginTop: '1em'}}>Tambah Data Mahasiswa</button>
+      <button onClick={() => { navigate('/tambah') }} id='btn-tambah' style={{marginTop: '1em'}}>Tambah Data Mahasiswa</button>
 
       <table>
         <thead>

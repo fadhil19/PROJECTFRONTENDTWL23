@@ -17,10 +17,12 @@ root.render(
   <React.StrictMode>
     <BrowserRouter>
     <Routes> 
-    <Route path='/' element={<App />}/>
+    <Route path='/*'/>
+      <Route path='/tambah' element={<App />}/>
+      <Route index element={<LoginPage />}/>
+      <Route path='/login' index element={<LoginPage />}/>
       <Route path='/edit/:nim' element={<EditPage />}/>
       <Route path='/daftarmhs' element={<Tambahdata />}/>
-      <Route path='/login' element={<LoginPage />}/>
       <Route path='/register' element={<RegisterPage />}/>
     </Routes>
     </BrowserRouter>
